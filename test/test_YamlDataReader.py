@@ -32,11 +32,18 @@ class TestYamlDataReader:
         return yaml_text, expected
 
     @pytest.fixture()
-    def filepath_and_data(self, yaml_text_and_data: tuple[str, DataType], tmpdir) -> tuple[str, DataType]:
+    def filepath_and_data(
+        self,
+        yaml_text_and_data: tuple[str, DataType],
+        tmpdir
+    ) -> tuple[str, DataType]:
         p = tmpdir.mkdir("datadir").join("students.yaml")
         p.write_text(yaml_text_and_data[0], encoding="utf-8")
         return str(p), yaml_text_and_data[1]
 
-    def test_read_yaml(self, filepath_and_data: tuple[str, DataType]) -> None:
+    def test_read_yaml(
+        self,
+        filepath_and_data: tuple[str, DataType]
+    ) -> None:
         content = YamlDataReader().read(filepath_and_data[0])
         assert content == filepath_and_data[1]

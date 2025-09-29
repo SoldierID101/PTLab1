@@ -9,8 +9,18 @@ from QuartileCalculator import QuartileCalculator
 
 def get_path_from_arguments(args) -> tuple[str, bool]:
     parser = argparse.ArgumentParser(description="Path to datafile")
-    parser.add_argument("-p", dest="path", type=str, required=True, help="Path to datafile")
-    parser.add_argument("--yaml", action="store_true", help="Use YAML reader")
+    parser.add_argument(
+        "-p",
+        dest="path",
+        type=str,
+        required=True,
+        help="Path to datafile"
+    )
+    parser.add_argument(
+        "--yaml",
+        action="store_true",
+        help="Use YAML reader"
+    )
     parsed = parser.parse_args(args)
     return parsed.path, parsed.yaml
 
