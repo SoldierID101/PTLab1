@@ -117,8 +117,10 @@ classDiagram
 
     DataReader <|-- TextDataReader
     DataReader <|-- YamlDataReader
-    CalcRating --> DataReader : использует данные
-    QuartileCalculator --> CalcRating : использует рейтинг
+
+    CalcRating ..> DataReader : использует данные
+    QuartileCalculator ..> CalcRating : использует рейтинг
+
 ```
 
 ---
