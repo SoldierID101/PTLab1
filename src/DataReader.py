@@ -2,7 +2,7 @@
 from Types import DataType
 from abc import ABC, abstractmethod
 
-
+#Новый коментарий 
 class DataReader(ABC):
 
     @abstractmethod
